@@ -403,7 +403,7 @@
                         </style>
                         <div id="globeViz"></div>
                         <button id="setButton">Set Location</button>
-                        <button id="seeReportButton" style="display: none;">See Report</button>
+                        <button id="seeReportButton" style="display: none;" onclick="redirectToReport()" class="btn btn-primary">See Report</button>
                         <div id="messageBox"
                             style="display: none; margin-top: 10px; padding: 10px; background-color: #e0ffe0; color: #1e3a5f; border: 1px solid #1e3a5f; border-radius: 5px;">
                         </div>
@@ -418,7 +418,8 @@
 
                             const globeMaterial = world.globeMaterial();
                             globeMaterial.bumpScale = 10;
-
+                            latitude = 0;
+                            longitude = 0;
                             const marker = { lat: 0, lng: 0, size: 0.5, color: 'red' };
 
                             // Initial marker setup
@@ -433,6 +434,8 @@
                                 marker.lng = lng;
                                 world.pointsData([marker]);
                                 console.log(`Marker set to Latitude: ${lat}, Longitude: ${lng}`);
+                                latitude=lat
+                                longitude=lng
                             });
 
                             // "Set" button click event to send coordinates to the backend
@@ -466,14 +469,12 @@
                                     .catch(error => console.error("Error:", error));
                             });
 
-                            // "See Report" button click event
-                            document.getElementById("seeReportButton").addEventListener("click", () => {
-                                // Open a new page for the report, passing the coordinates in the URL
-                                const reportUrl = `/report?lat=${marker.lat}&lng=${marker.lng}`;
-
-                                window.location.href = reportUrl;
-                            });
-                        </script>
+                         // "See Report" button click event
+                        function redirectToReport() {
+                            // Redirect to the report route with parameters
+                            window.location.href = `/report?lat=${latitude}&lng=${longitude}`;
+                        }
+                </script>
                     </div>
 
 
