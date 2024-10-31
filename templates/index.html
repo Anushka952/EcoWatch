@@ -13,7 +13,8 @@
 
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Roboto:wght@500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Roboto:wght@500;700&display=swap"
+        rel="stylesheet">
 
     <!-- Icon Font Stylesheet -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.0/css/all.min.css" rel="stylesheet">
@@ -36,8 +37,8 @@
             <div class="col-lg-3">
                 <div class="d-flex align-items-center justify-content-start">
                     <i class="bi bi-phone-vibrate fs-1 text-primary me-2"></i>
-                   
-                     <img src ="static/img/logo.png" />
+
+                    <img src="static/img/logo.png" />
 
                 </div>
             </div>
@@ -50,9 +51,12 @@
             </div>
             <div class="col-lg-3">
                 <div class="d-flex align-items-center justify-content-end">
-                    <a class="btn btn-primary btn-square rounded-circle me-2" href="#"><i class="fab fa-twitter"></i></a>
-                    <a class="btn btn-primary btn-square rounded-circle me-2" href="#"><i class="fab fa-facebook-f"></i></a>
-                    <a class="btn btn-primary btn-square rounded-circle me-2" href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a class="btn btn-primary btn-square rounded-circle me-2" href="#"><i
+                            class="fab fa-twitter"></i></a>
+                    <a class="btn btn-primary btn-square rounded-circle me-2" href="#"><i
+                            class="fab fa-facebook-f"></i></a>
+                    <a class="btn btn-primary btn-square rounded-circle me-2" href="#"><i
+                            class="fab fa-linkedin-in"></i></a>
                     <a class="btn btn-primary btn-square rounded-circle" href="#"><i class="fab fa-instagram"></i></a>
                 </div>
             </div>
@@ -72,7 +76,7 @@
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <div class="navbar-nav mx-auto py-0">
                 <a href="index.html" class="nav-item nav-link active">Home</a>
-                <a href="about.html" class="nav-item nav-link">About</a>
+                <a href="{{ url_for('about') }}" class="nav-item nav-link active">About</a>
                 <a href="service.html" class="nav-item nav-link">Service</a>
                 <a href="product.html" class="nav-item nav-link">Product</a>
                 <div class="nav-item dropdown">
@@ -82,7 +86,7 @@
                         <a href="detail.html" class="dropdown-item">Blog Detail</a>
                         <a href="feature.html" class="dropdown-item">Features</a>
                         <a href="team.html" class="dropdown-item">The Team</a>
-                        
+
                     </div>
                 </div>
                 <a href="contact.html" class="nav-item nav-link">Contact</a>
@@ -98,10 +102,12 @@
             <div class="carousel-inner">
                 <div class="carousel-item active">
                     <img class="w-100" src="static/img/animal.jpg" alt="Image">
-                    <div class="carousel-caption top-0 bottom-0 start-0 end-0 d-flex flex-column align-items-center justify-content-center">
+                    <div
+                        class="carousel-caption top-0 bottom-0 start-0 end-0 d-flex flex-column align-items-center justify-content-center">
                         <div class="text-start p-5" style="max-width: 900px;">
                             <h3 class="text-white">Sustainable AI</h3>
-                            <h1 class="display-1 text-white mb-md-4">Protecting Our Planet, One AI-Powered Insight at a Time</h1>
+                            <h1 class="display-1 text-white mb-md-4">Protecting Our Planet, One AI-Powered Insight at a
+                                Time</h1>
                             <!-- <a href="" class="btn btn-primary py-md-3 px-md-5 me-3">Explore</a>
                             <a href="" class="btn btn-secondary py-md-3 px-md-5">Contact</a> -->
                         </div>
@@ -109,23 +115,23 @@
                 </div>
                 <div class="carousel-item">
                     <img class="w-100" src="static/img/bird.jpg" alt="Image">
-                    <div class="carousel-caption top-0 bottom-0 start-0 end-0 d-flex flex-column align-items-center justify-content-center">
+                    <div
+                        class="carousel-caption top-0 bottom-0 start-0 end-0 d-flex flex-column align-items-center justify-content-center">
                         <div class="text-start p-5" style="max-width: 900px;">
                             <h3 class="text-white">Sustainable AI</h3>
-                            <h1 class="display-1 text-white mb-md-4">Protecting Our Planet, One AI-Powered Insight at a Time</h1>
+                            <h1 class="display-1 text-white mb-md-4">Protecting Our Planet, One AI-Powered Insight at a
+                                Time</h1>
                             <!-- <a href="" class="btn btn-primary py-md-3 px-md-5 me-3">Explore</a>
                             <a href="" class="btn btn-secondary py-md-3 px-md-5">Contact</a> -->
                         </div>
                     </div>
                 </div>
             </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#header-carousel"
-                data-bs-slide="prev">
+            <button class="carousel-control-prev" type="button" data-bs-target="#header-carousel" data-bs-slide="prev">
                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                 <span class="visually-hidden">Previous</span>
             </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#header-carousel"
-                data-bs-slide="next">
+            <button class="carousel-control-next" type="button" data-bs-target="#header-carousel" data-bs-slide="next">
                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
                 <span class="visually-hidden">Next</span>
             </button>
@@ -141,7 +147,10 @@
                 <div class="col-md-6">
                     <div class="bg-primary bg d-flex flex-column justify-content-center p-5" style="height: 300px;">
                         <h3 class="text-white mb-3">Real-Time Environmental Monitoring</h3>
-                        <p class="text-white">Leveraging GenAI, we offer real-time tracking of endangered species, deforestation rates, and climate impacts. This enables proactive and timely conservation actions by providing up-to-date ecosystem health data through satellite imagery and crowdsourced reports.
+                        <p class="text-white">Leveraging GenAI, we offer real-time tracking of endangered species,
+                            deforestation rates, and climate impacts. This enables proactive and timely conservation
+                            actions by providing up-to-date ecosystem health data through satellite imagery and
+                            crowdsourced reports.
 
                         </p>
                         <!-- <a class="text-white fw-bold" href="">Read More<i class="bi bi-arrow-right ms-2"></i></a> -->
@@ -150,7 +159,10 @@
                 <div class="col-md-6">
                     <div class="bg-secondary bg d-flex flex-column justify-content-center p-5" style="height: 300px;">
                         <h3 class="text-white mb-3">Predictive Analytics for Ecosystem Restoration</h3>
-                        <p class="text-white">Using generative models, we create realistic simulations to predict future changes in ecosystems due to factors like deforestation and climate change. These predictions allow for early intervention, helping to restore ecosystems before significant damage occurs and guiding region-specific, actionable conservation plans.</p>
+                        <p class="text-white">Using generative models, we create realistic simulations to predict future
+                            changes in ecosystems due to factors like deforestation and climate change. These
+                            predictions allow for early intervention, helping to restore ecosystems before significant
+                            damage occurs and guiding region-specific, actionable conservation plans.</p>
                         <!-- <a class="text-white fw-bold" href="">Read More<i class="bi bi-arrow-right ms-2"></i></a> -->
                     </div>
                 </div>
@@ -176,7 +188,12 @@
                         <h1 class="display-5">About Us</h1>
 
                     </div>
-                    <p class="mb-4"> we are committed to leveraging the power of technology and open-source models to protect and restore our planet's ecosystems. Our innovative services are designed to provide comprehensive solutions for environmental monitoring, conservation, and sustainable management. By utilizing Generative AI and open-source frameworks, we deliver actionable insights that empower individuals, organizations, and governments to make informed decisions for a healthier environment.</p>
+                    <p class="mb-4"> we are committed to leveraging the power of technology and open-source models to
+                        protect and restore our planet's ecosystems. Our innovative services are designed to provide
+                        comprehensive solutions for environmental monitoring, conservation, and sustainable management.
+                        By utilizing Generative AI and open-source frameworks, we deliver actionable insights that
+                        empower individuals, organizations, and governments to make informed decisions for a healthier
+                        environment.</p>
                     <div class="row gx-5 gy-4">
                         <div class="col-sm-6">
                             <i class="fa fa-seedling display-1 text-secondary"></i>
@@ -202,7 +219,8 @@
             <div class="row gx-5 gy-4">
                 <div class="col-lg-3 col-md-6">
                     <div class="d-flex">
-                        <div class="bg-secondary rounded-circle d-flex align-items-center justify-content-center mb-3" style="width: 60px; height: 60px;">
+                        <div class="bg-secondary rounded-circle d-flex align-items-center justify-content-center mb-3"
+                            style="width: 60px; height: 60px;">
                             <i class="fa fa-star fs-4 text-white"></i>
                         </div>
                         <div class="ps-4">
@@ -213,7 +231,8 @@
                 </div>
                 <div class="col-lg-3 col-md-6">
                     <div class="d-flex">
-                        <div class="bg-secondary rounded-circle d-flex align-items-center justify-content-center mb-3" style="width: 60px; height: 60px;">
+                        <div class="bg-secondary rounded-circle d-flex align-items-center justify-content-center mb-3"
+                            style="width: 60px; height: 60px;">
                             <i class="fa fa-users fs-4 text-white"></i>
                         </div>
                         <div class="ps-4">
@@ -224,7 +243,8 @@
                 </div>
                 <div class="col-lg-3 col-md-6">
                     <div class="d-flex">
-                        <div class="bg-secondary rounded-circle d-flex align-items-center justify-content-center mb-3" style="width: 60px; height: 60px;">
+                        <div class="bg-secondary rounded-circle d-flex align-items-center justify-content-center mb-3"
+                            style="width: 60px; height: 60px;">
                             <i class="fa fa-check fs-4 text-white"></i>
                         </div>
                         <div class="ps-4">
@@ -235,7 +255,8 @@
                 </div>
                 <div class="col-lg-3 col-md-6">
                     <div class="d-flex">
-                        <div class="bg-secondary rounded-circle d-flex align-items-center justify-content-center mb-3" style="width: 60px; height: 60px;">
+                        <div class="bg-secondary rounded-circle d-flex align-items-center justify-content-center mb-3"
+                            style="width: 60px; height: 60px;">
                             <i class="fa fa-mug-hot fs-4 text-white"></i>
                         </div>
                         <div class="ps-4">
@@ -248,7 +269,7 @@
         </div>
     </div>
     <!-- Facts End -->
-    
+
 
     <!-- Services Start -->
     <div class="container-fluid py-5">
@@ -259,42 +280,48 @@
                         <h6 class="text-primary text-uppercase">Services</h6>
                         <h1 class="display-5">EcoWatch Features</h1>
                     </div>
-                    <p class="mb-4">Tempor erat elitr at rebum at at clita. Diam dolor diam ipsum et tempor sit. Clita erat ipsum et lorem et sit sed stet labore</p>
+                    <p class="mb-4">Tempor erat elitr at rebum at at clita. Diam dolor diam ipsum et tempor sit. Clita
+                        erat ipsum et lorem et sit sed stet labore</p>
                     <a href="" class="btn btn-primary py-md-3 px-md-5">Contact Us</a>
                 </div>
                 <div class="col-lg-4 col-md-6">
                     <div class="service-item bg-light text-center p-5">
                         <i class="fa fa-carrot display-1 text-primary mb-3"></i>
                         <h4>Endangered Species Monitoring</h4>
-                        <p class="mb-0">Labore justo vero ipsum sit clita erat lorem magna clita nonumy dolor magna dolor vero</p>
+                        <p class="mb-0">Labore justo vero ipsum sit clita erat lorem magna clita nonumy dolor magna
+                            dolor vero</p>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6">
                     <div class="service-item bg-light text-center p-5">
                         <i class="fa fa-apple-alt display-1 text-primary mb-3"></i>
                         <h4>Deforestation Trends Analysis</h4>
-                        <p class="mb-0">Labore justo vero ipsum sit clita erat lorem magna clita nonumy dolor magna dolor vero</p>
+                        <p class="mb-0">Labore justo vero ipsum sit clita erat lorem magna clita nonumy dolor magna
+                            dolor vero</p>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6">
                     <div class="service-item bg-light text-center p-5">
                         <i class="fa fa-dog display-1 text-primary mb-3"></i>
                         <h4>Collaboration for Remediation</h4>
-                        <p class="mb-0">Labore justo vero ipsum sit clita erat lorem magna clita nonumy dolor magna dolor vero</p>
+                        <p class="mb-0">Labore justo vero ipsum sit clita erat lorem magna clita nonumy dolor magna
+                            dolor vero</p>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6">
                     <div class="service-item bg-light text-center p-5">
                         <i class="fa fa-tractor display-1 text-primary mb-3"></i>
                         <h4>Climate Change Impact Modeling</h4>
-                        <p class="mb-0">Labore justo vero ipsum sit clita erat lorem magna clita nonumy dolor magna dolor vero</p>
+                        <p class="mb-0">Labore justo vero ipsum sit clita erat lorem magna clita nonumy dolor magna
+                            dolor vero</p>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6">
                     <div class="service-item bg-light text-center p-5">
                         <i class="fa fa-seedling display-1 text-primary mb-3"></i>
                         <h4>Action Planning</h4>
-                        <p class="mb-0">Labore justo vero ipsum sit clita erat lorem magna clita nonumy dolor magna dolor vero</p>
+                        <p class="mb-0">Labore justo vero ipsum sit clita erat lorem magna clita nonumy dolor magna
+                            dolor vero</p>
                     </div>
                 </div>
             </div>
@@ -313,121 +340,158 @@
             <div class="row g-5">
                 <div class="col-lg-3">
                     <div class="text-white mb-5">
-                        <div class="bg-secondary rounded-pill d-flex align-items-center justify-content-center mb-3" style="width: 60px; height: 60px;">
+                        <div class="bg-secondary rounded-pill d-flex align-items-center justify-content-center mb-3"
+                            style="width: 60px; height: 60px;">
                             <i class="fa fa-seedling fs-4 text-white"></i>
                         </div>
-                        <h4 class="text-white">Data-Driven Insights for Tangible Change                        </h4>
-                        <p class="mb-0">Track real-time data and assess impact through concrete metrics like deforestation rates and biodiversity stability.
+                        <h4 class="text-white">Data-Driven Insights for Tangible Change </h4>
+                        <p class="mb-0">Track real-time data and assess impact through concrete metrics like
+                            deforestation rates and biodiversity stability.
                         </p>
                     </div>
                     <div class="text-white">
-                        <div class="bg-secondary rounded-pill d-flex align-items-center justify-content-center mb-3" style="width: 60px; height: 60px;">
+                        <div class="bg-secondary rounded-pill d-flex align-items-center justify-content-center mb-3"
+                            style="width: 60px; height: 60px;">
                             <i class="fa fa-award fs-4 text-white"></i>
                         </div>
                         <h4 class="text-white">Interactive & Intuitive Experience</h4>
-                        <p class="mb-0">With intuitive tools, anyone from decision-makers to eco-enthusiasts can visualize environmental changes.
-</p>
+                        <p class="mb-0">With intuitive tools, anyone from decision-makers to eco-enthusiasts can
+                            visualize environmental changes.
+                        </p>
                     </div>
                 </div>
                 <div class="col-lg-6">
                     <div class="d-block bg-white h-100 text-center p-5 pb-lg-0">
                         <style>
-                        #globeViz {
-                            height: 550px;
-                            width: 550px;
-                            max-width: 100%;
-                            max-height: 100%;
-                            
-                        }
-                        #setButton {
-                        padding: 10px 20px;
-                        font-size: 16px;
-                        background-color: #1e3a5f;
-                        color: white;
-                        border: none;
-                        border-radius: 5px;
-                        cursor: pointer;
-                    }
+                            #globeViz {
+                                height: 550px;
+                                width: 550px;
+                                max-width: 100%;
+                                max-height: 100%;
 
-                    #setButton:hover {
-                        background-color: #174356;
-                    }
-                    </style>
+                            }
+
+                            #setButton {
+                                padding: 10px 20px;
+                                font-size: 16px;
+                                background-color: #1e3a5f;
+                                color: white;
+                                border: none;
+                                border-radius: 5px;
+                                cursor: pointer;
+                            }
+
+                            #setButton:hover {
+                                background-color: #174356;
+                            }
+
+                            #seeReportButton {
+                                padding: 10px 20px;
+                                font-size: 16px;
+                                background-color: orange;
+                                color: white;
+                                border: none;
+                                border-radius: 5px;
+                                cursor: pointer;
+                            }
+
+                            #seeReportButton:hover {
+                                background-color: #174356;
+                            }
+
+                            
+                        </style>
                         <div id="globeViz"></div>
-                        <button id="setButton">Set Location</button> 
-                        <div id="messageBox" style="display: none; margin-top: 10px; padding: 10px; background-color: #e0ffe0; color: #1e3a5f; border: 1px solid #1e3a5f; border-radius: 5px;"> </div>
+                        <button id="setButton">Set Location</button>
+                        <button id="seeReportButton" style="display: none;">See Report</button>
+                        <div id="messageBox"
+                            style="display: none; margin-top: 10px; padding: 10px; background-color: #e0ffe0; color: #1e3a5f; border: 1px solid #1e3a5f; border-radius: 5px;">
+                        </div>
 
                         <script>const world = Globe()
-                            .globeImageUrl('//unpkg.com/three-globe/example/img/earth-blue-marble.jpg')
-                            .bumpImageUrl('//unpkg.com/three-globe/example/img/earth-topology.png')
-                            .backgroundColor("#ffffff00")
-                            .width(550)
-                            .height(550)
-                            (document.getElementById('globeViz'));
-                          
-                          const globeMaterial = world.globeMaterial();
-                          globeMaterial.bumpScale = 10;
-                          
-                          const marker = { lat: 0, lng: 0, size: 0.5, color: 'red' };
-                          
-                          // Initial marker setup
-                          world
-                            .pointsData([marker])
-                            .pointAltitude(d => d.size)
-                            .pointColor(d => d.color);
-                          
-                          // Track the drag with globe click
-                          world.onGlobeClick(({ lat, lng }) => {
-                              marker.lat = lat;
-                              marker.lng = lng;
-                              world.pointsData([marker]);
-                              console.log(`Marker set to Latitude: ${lat}, Longitude: ${lng}`);
-                          });
-                          
-                          // "Set" button click event to send coordinates to the backend
-                          document.getElementById("setButton").addEventListener("click", () => {
-                              console.log(`Set button clicked with Latitude: ${marker.lat}, Longitude: ${marker.lng}`);
-                              
-                              // Send coordinates to the backend
-                              fetch('/set-location', {
-                                  method: 'POST',
-                                  headers: {
-                                      'Content-Type': 'application/json',
-                                  },
-                                  body: JSON.stringify({ lat: marker.lat, lng: marker.lng })
-                              })
-                              .then(response => response.json())
-                              .then(data => {
-                                  console.log("Location set:", data);
-                          
-                                  // Display the message box with coordinates
-                                  const messageBox = document.getElementById("messageBox");
-                                  messageBox.style.display = 'block';
-                                  messageBox.textContent = `Coordinates added successfully! Latitude: ${data.latitude}, Longitude: ${data.longitude}`;
-                          
-                                  // Hide the message box after a few seconds (optional)
-                                  setTimeout(() => {
-                                      messageBox.style.display = 'none';
-                                  }, 5000);  // Hide after 5 seconds
-                              })
-                              .catch(error => console.error("Error:", error));
-                          });
-                          </script>
-                        </div>
-                       
-       
+                                .globeImageUrl('//unpkg.com/three-globe/example/img/earth-blue-marble.jpg')
+                                .bumpImageUrl('//unpkg.com/three-globe/example/img/earth-topology.png')
+                                .backgroundColor("#ffffff00")
+                                .width(550)
+                                .height(550)
+                                (document.getElementById('globeViz'));
+
+                            const globeMaterial = world.globeMaterial();
+                            globeMaterial.bumpScale = 10;
+
+                            const marker = { lat: 0, lng: 0, size: 0.5, color: 'red' };
+
+                            // Initial marker setup
+                            world
+                                .pointsData([marker])
+                                .pointAltitude(d => d.size)
+                                .pointColor(d => d.color);
+
+                            // Track the drag with globe click
+                            world.onGlobeClick(({ lat, lng }) => {
+                                marker.lat = lat;
+                                marker.lng = lng;
+                                world.pointsData([marker]);
+                                console.log(`Marker set to Latitude: ${lat}, Longitude: ${lng}`);
+                            });
+
+                            // "Set" button click event to send coordinates to the backend
+                            document.getElementById("setButton").addEventListener("click", () => {
+                                console.log(`Set button clicked with Latitude: ${marker.lat}, Longitude: ${marker.lng}`);
+
+                                // Send coordinates to the backend
+                                fetch('/set-location', {
+                                    method: 'POST',
+                                    headers: {
+                                        'Content-Type': 'application/json',
+                                    },
+                                    body: JSON.stringify({ lat: marker.lat, lng: marker.lng })
+                                })
+                                    .then(response => response.json())
+                                    .then(data => {
+                                        console.log("Location set:", data);
+
+                                        // Display the message box with coordinates
+                                        const messageBox = document.getElementById("messageBox");
+                                        messageBox.style.display = 'block';
+                                        messageBox.textContent = `Coordinates added successfully! Latitude: ${data.latitude}, Longitude: ${data.longitude}`;
+                                        // Display "See Report" button
+                                        const seeReportButton = document.getElementById("seeReportButton");
+                                        seeReportButton.style.display = 'inline-block';
+                                        // Hide the message box after a few seconds (optional)
+                                        setTimeout(() => {
+                                            messageBox.style.display = 'none';
+                                        }, 5000);  // Hide after 5 seconds
+                                    })
+                                    .catch(error => console.error("Error:", error));
+                            });
+
+                            // "See Report" button click event
+                            document.getElementById("seeReportButton").addEventListener("click", () => {
+                                // Open a new page for the report, passing the coordinates in the URL
+                                const reportUrl = `/report?lat=${marker.lat}&lng=${marker.lng}`;
+
+                                window.location.href = reportUrl;
+                            });
+                        </script>
+                    </div>
+
+
                 </div>
                 <div class="col-lg-3">
                     <div class="text-white mb-5">
-                        <div class="bg-secondary rounded-pill d-flex align-items-center justify-content-center mb-3" style="width: 60px; height: 60px;">
+                        <div class="bg-secondary rounded-pill d-flex align-items-center justify-content-center mb-3"
+                            style="width: 60px; height: 60px;">
                             <i class="fa fa-tractor fs-4 text-white"></i>
                         </div>
                         <h4 class="text-white">Future-Focused Tech for a Greener Tomorrow
                         </h4>
-                        <p class="mb-0">Our cutting-edge generative AI and GAN models simulate the effects of climate change, offering insights that go beyond traditional data. </p>
+                        <p class="mb-0">Our cutting-edge generative AI and GAN models simulate the effects of climate
+                            change, offering insights that go beyond traditional data. </p>
                     </div>
                     <div class="text-white">
-                        <div class="bg-secondary rounded-pill d-flex align-items-center justify-content-center mb-3" style="width: 60px; height: 60px;">
+                        <div class="bg-secondary rounded-pill d-flex align-items-center justify-content-center mb-3"
+                            style="width: 60px; height: 60px;">
                             <i class="fa fa-phone-alt fs-4 text-white"></i>
                         </div>
                         <h4 class="text-white">World at your fingertips!</h4>
@@ -453,7 +517,7 @@
                         <img class="img-fluid mb-4" src="static/img/JavanRhino.jpg" alt="">
                         <h6 class="mb-3">Javan Rhino
                         </h6>
-                        <h5 class="text-primary mb-0"> Jakarta, Indonesia                        </h5>
+                        <h5 class="text-primary mb-0"> Jakarta, Indonesia </h5>
                         <div class="btn-action d-flex justify-content-center">
                             <!-- <a class="btn bg-primary py-2 px-3" href=""><i class="bi bi-cart text-white"></i></a>
                             <a class="btn bg-secondary py-2 px-3" href=""><i class="bi bi-eye text-white"></i></a> -->
@@ -512,7 +576,7 @@
 
 
     <!-- Testimonial Start -->
-    
+
     <!-- Testimonial End -->
 
 
@@ -529,18 +593,24 @@
                         <div class="col-10">
                             <div class="position-relative">
                                 <img class="img-fluid w-100" src="img/bird.jpg" alt="">
-                                <div class="position-absolute start-0 bottom-0 w-100 py-3 px-4" style="background: rgba(52, 173, 84, .85);">
+                                <div class="position-absolute start-0 bottom-0 w-100 py-3 px-4"
+                                    style="background: rgba(52, 173, 84, .85);">
                                     <h4 class="text-white">Farmer Name</h4>
                                     <span class="text-white">Designation</span>
                                 </div>
                             </div>
                         </div>
                         <div class="col-2">
-                            <div class="h-100 d-flex flex-column align-items-center justify-content-around bg-secondary py-5">
-                                <a class="btn btn-square rounded-circle bg-white" href="#"><i class="fab fa-twitter text-secondary"></i></a>
-                                <a class="btn btn-square rounded-circle bg-white" href="#"><i class="fab fa-facebook-f text-secondary"></i></a>
-                                <a class="btn btn-square rounded-circle bg-white" href="#"><i class="fab fa-linkedin-in text-secondary"></i></a>
-                                <a class="btn btn-square rounded-circle bg-white" href="#"><i class="fab fa-instagram text-secondary"></i></a>
+                            <div
+                                class="h-100 d-flex flex-column align-items-center justify-content-around bg-secondary py-5">
+                                <a class="btn btn-square rounded-circle bg-white" href="#"><i
+                                        class="fab fa-twitter text-secondary"></i></a>
+                                <a class="btn btn-square rounded-circle bg-white" href="#"><i
+                                        class="fab fa-facebook-f text-secondary"></i></a>
+                                <a class="btn btn-square rounded-circle bg-white" href="#"><i
+                                        class="fab fa-linkedin-in text-secondary"></i></a>
+                                <a class="btn btn-square rounded-circle bg-white" href="#"><i
+                                        class="fab fa-instagram text-secondary"></i></a>
                             </div>
                         </div>
                     </div>
@@ -550,18 +620,24 @@
                         <div class="col-10">
                             <div class="position-relative">
                                 <img class="img-fluid w-100" src="static/img/bird.jpg" alt="">
-                                <div class="position-absolute start-0 bottom-0 w-100 py-3 px-4" style="background: rgba(52, 173, 84, .85);">
+                                <div class="position-absolute start-0 bottom-0 w-100 py-3 px-4"
+                                    style="background: rgba(52, 173, 84, .85);">
                                     <h4 class="text-white">Farmer Name</h4>
                                     <span class="text-white">Designation</span>
                                 </div>
                             </div>
                         </div>
                         <div class="col-2">
-                            <div class="h-100 d-flex flex-column align-items-center justify-content-around bg-secondary py-5">
-                                <a class="btn btn-square rounded-circle bg-white" href="#"><i class="fab fa-twitter text-secondary"></i></a>
-                                <a class="btn btn-square rounded-circle bg-white" href="#"><i class="fab fa-facebook-f text-secondary"></i></a>
-                                <a class="btn btn-square rounded-circle bg-white" href="#"><i class="fab fa-linkedin-in text-secondary"></i></a>
-                                <a class="btn btn-square rounded-circle bg-white" href="#"><i class="fab fa-instagram text-secondary"></i></a>
+                            <div
+                                class="h-100 d-flex flex-column align-items-center justify-content-around bg-secondary py-5">
+                                <a class="btn btn-square rounded-circle bg-white" href="#"><i
+                                        class="fab fa-twitter text-secondary"></i></a>
+                                <a class="btn btn-square rounded-circle bg-white" href="#"><i
+                                        class="fab fa-facebook-f text-secondary"></i></a>
+                                <a class="btn btn-square rounded-circle bg-white" href="#"><i
+                                        class="fab fa-linkedin-in text-secondary"></i></a>
+                                <a class="btn btn-square rounded-circle bg-white" href="#"><i
+                                        class="fab fa-instagram text-secondary"></i></a>
                             </div>
                         </div>
                     </div>
@@ -571,18 +647,24 @@
                         <div class="col-10">
                             <div class="position-relative">
                                 <img class="img-fluid w-100" src="static/img/bird.jpg" alt="">
-                                <div class="position-absolute start-0 bottom-0 w-100 py-3 px-4" style="background: rgba(52, 173, 84, .85);">
+                                <div class="position-absolute start-0 bottom-0 w-100 py-3 px-4"
+                                    style="background: rgba(52, 173, 84, .85);">
                                     <h4 class="text-white">Farmer Name</h4>
                                     <span class="text-white">Designation</span>
                                 </div>
                             </div>
                         </div>
                         <div class="col-2">
-                            <div class="h-100 d-flex flex-column align-items-center justify-content-around bg-secondary py-5">
-                                <a class="btn btn-square rounded-circle bg-white" href="#"><i class="fab fa-twitter text-secondary"></i></a>
-                                <a class="btn btn-square rounded-circle bg-white" href="#"><i class="fab fa-facebook-f text-secondary"></i></a>
-                                <a class="btn btn-square rounded-circle bg-white" href="#"><i class="fab fa-linkedin-in text-secondary"></i></a>
-                                <a class="btn btn-square rounded-circle bg-white" href="#"><i class="fab fa-instagram text-secondary"></i></a>
+                            <div
+                                class="h-100 d-flex flex-column align-items-center justify-content-around bg-secondary py-5">
+                                <a class="btn btn-square rounded-circle bg-white" href="#"><i
+                                        class="fab fa-twitter text-secondary"></i></a>
+                                <a class="btn btn-square rounded-circle bg-white" href="#"><i
+                                        class="fab fa-facebook-f text-secondary"></i></a>
+                                <a class="btn btn-square rounded-circle bg-white" href="#"><i
+                                        class="fab fa-linkedin-in text-secondary"></i></a>
+                                <a class="btn btn-square rounded-circle bg-white" href="#"><i
+                                        class="fab fa-instagram text-secondary"></i></a>
                             </div>
                         </div>
                     </div>
@@ -632,7 +714,7 @@
         </div>
     </div>
     <!-- Blog End -->
-    
+
 
     <!-- Footer Start -->
     <div class="container-fluid bg-footer bg-primary text-white mt-5">
@@ -655,38 +737,55 @@
                                 <p class="text-white mb-0">+012 345 67890</p>
                             </div>
                             <div class="d-flex mt-4">
-                                <a class="btn btn-secondary btn-square rounded-circle me-2" href="#"><i class="fab fa-twitter"></i></a>
-                                <a class="btn btn-secondary btn-square rounded-circle me-2" href="#"><i class="fab fa-facebook-f"></i></a>
-                                <a class="btn btn-secondary btn-square rounded-circle me-2" href="#"><i class="fab fa-linkedin-in"></i></a>
-                                <a class="btn btn-secondary btn-square rounded-circle" href="#"><i class="fab fa-instagram"></i></a>
+                                <a class="btn btn-secondary btn-square rounded-circle me-2" href="#"><i
+                                        class="fab fa-twitter"></i></a>
+                                <a class="btn btn-secondary btn-square rounded-circle me-2" href="#"><i
+                                        class="fab fa-facebook-f"></i></a>
+                                <a class="btn btn-secondary btn-square rounded-circle me-2" href="#"><i
+                                        class="fab fa-linkedin-in"></i></a>
+                                <a class="btn btn-secondary btn-square rounded-circle" href="#"><i
+                                        class="fab fa-instagram"></i></a>
                             </div>
                         </div>
                         <div class="col-lg-4 col-md-12 pt-0 pt-lg-5 mb-5">
                             <h4 class="text-white mb-4">Quick Links</h4>
                             <div class="d-flex flex-column justify-content-start">
-                                <a class="text-white mb-2" href="#"><i class="bi bi-arrow-right text-white me-2"></i>Home</a>
-                                <a class="text-white mb-2" href="#"><i class="bi bi-arrow-right text-white me-2"></i>About Us</a>
-                                <a class="text-white mb-2" href="#"><i class="bi bi-arrow-right text-white me-2"></i>Our Services</a>
-                                <a class="text-white mb-2" href="#"><i class="bi bi-arrow-right text-white me-2"></i>Meet The Team</a>
-                                <a class="text-white mb-2" href="#"><i class="bi bi-arrow-right text-white me-2"></i>Latest Blog</a>
-                                <a class="text-white" href="#"><i class="bi bi-arrow-right text-white me-2"></i>Contact Us</a>
+                                <a class="text-white mb-2" href="#"><i
+                                        class="bi bi-arrow-right text-white me-2"></i>Home</a>
+                                <a class="text-white mb-2" href="#"><i
+                                        class="bi bi-arrow-right text-white me-2"></i>About Us</a>
+                                <a class="text-white mb-2" href="#"><i class="bi bi-arrow-right text-white me-2"></i>Our
+                                    Services</a>
+                                <a class="text-white mb-2" href="#"><i
+                                        class="bi bi-arrow-right text-white me-2"></i>Meet The Team</a>
+                                <a class="text-white mb-2" href="#"><i
+                                        class="bi bi-arrow-right text-white me-2"></i>Latest Blog</a>
+                                <a class="text-white" href="#"><i class="bi bi-arrow-right text-white me-2"></i>Contact
+                                    Us</a>
                             </div>
                         </div>
                         <div class="col-lg-4 col-md-12 pt-0 pt-lg-5 mb-5">
                             <h4 class="text-white mb-4">Popular Links</h4>
                             <div class="d-flex flex-column justify-content-start">
-                                <a class="text-white mb-2" href="#"><i class="bi bi-arrow-right text-white me-2"></i>Home</a>
-                                <a class="text-white mb-2" href="#"><i class="bi bi-arrow-right text-white me-2"></i>About Us</a>
-                                <a class="text-white mb-2" href="#"><i class="bi bi-arrow-right text-white me-2"></i>Our Services</a>
-                                <a class="text-white mb-2" href="#"><i class="bi bi-arrow-right text-white me-2"></i>Meet The Team</a>
-                                <a class="text-white mb-2" href="#"><i class="bi bi-arrow-right text-white me-2"></i>Latest Blog</a>
-                                <a class="text-white" href="#"><i class="bi bi-arrow-right text-white me-2"></i>Contact Us</a>
+                                <a class="text-white mb-2" href="#"><i
+                                        class="bi bi-arrow-right text-white me-2"></i>Home</a>
+                                <a class="text-white mb-2" href="#"><i
+                                        class="bi bi-arrow-right text-white me-2"></i>About Us</a>
+                                <a class="text-white mb-2" href="#"><i class="bi bi-arrow-right text-white me-2"></i>Our
+                                    Services</a>
+                                <a class="text-white mb-2" href="#"><i
+                                        class="bi bi-arrow-right text-white me-2"></i>Meet The Team</a>
+                                <a class="text-white mb-2" href="#"><i
+                                        class="bi bi-arrow-right text-white me-2"></i>Latest Blog</a>
+                                <a class="text-white" href="#"><i class="bi bi-arrow-right text-white me-2"></i>Contact
+                                    Us</a>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6 mt-lg-n5">
-                    <div class="d-flex flex-column align-items-center justify-content-center text-center h-100 bg-secondary p-5">
+                    <div
+                        class="d-flex flex-column align-items-center justify-content-center text-center h-100 bg-secondary p-5">
                         <h4 class="text-white">Newsletter</h4>
                         <h6 class="text-white">Subscribe Our Newsletter</h6>
                         <p>Amet justo diam dolor rebum lorem sit stet sea justo kasd</p>
@@ -703,7 +802,8 @@
     </div>
     <div class="container-fluid bg-dark text-white py-4">
         <div class="container text-center">
-            <p class="mb-0">&copy; <a class="text-secondary fw-bold" href="#">Your Site Name</a>. All Rights Reserved. Designed by <a class="text-secondary fw-bold" href="https://htmlcodex.com">HTML Codex</a></p>
+            <p class="mb-0">&copy; <a class="text-secondary fw-bold" href="#">Your Site Name</a>. All Rights Reserved.
+                Designed by <a class="text-secondary fw-bold" href="https://htmlcodex.com">HTML Codex</a></p>
         </div>
     </div>
     <!-- Footer End -->
