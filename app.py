@@ -2,10 +2,47 @@ from flask import Flask, render_template, request, jsonify
 import json
 from transformers import AutoModelForCausalLM, AutoTokenizer 
 import re 
-
+import requests
 
 app = Flask(__name__)
 
+# Open-Meteo API endpoint for weather and climate data
+OPEN_METEO_URL = 'https://api.open-meteo.com/v1/forecast'
+
+def get_weather_data(lat, lon):
+    """Fetch weather data from Open-Meteo API based on latitude and longitude."""
+    params = {
+        'latitude': lat,
+        'longitude': lon,
+        'hourly': 'temperature_2m,precipitation',
+        'daily': 'temperature_2m_max,temperature_2m_min,precipitation_sum',
+        'timezone': 'auto'
+    }
+    response = requests.get(OPEN_METEO_URL, params=params)
+    if response.status_code == 200:
+        return response.json()
+    else:
+        return None
+
+def generate_climate_summary(weather_data):
+    """Generate a summary based on the retrieved weather data."""
+    if not weather_data:
+        return "Weather data is unavailable. Please try again later."
+
+    # Extract relevant data for summary
+    daily_data = weather_data.get('daily', {})
+    temperature_max = daily_data.get('temperature_2m_max', [])[0] if daily_data.get('temperature_2m_max') else None
+    temperature_min = daily_data.get('temperature_2m_min', [])[0] if daily_data.get('temperature_2m_min') else None
+    precipitation = daily_data.get('precipitation_sum', [0])[0] if daily_data.get('precipitation_sum') else 0
+
+    # Create a summary
+    summary = (
+        f"The maximum temperature is expected to be {temperature_max}°C, "
+        f"the minimum temperature is {temperature_min}°C, "
+        f"and total precipitation is {precipitation} mm for the selected location."
+    )
+
+    return summary
 
 
 @app.route('/set-location', methods=['POST'])
@@ -31,7 +68,7 @@ def generate_report(lat, lng):
         input_ids,
         do_sample=True,
         temperature=0.9,
-        max_length=750,
+        max_length=200,
     )
     gen_text = tokenizer.batch_decode(gen_tokens)[0]
     clean_text = re.sub(re.escape(prompt.strip()), '', gen_text).strip()
@@ -53,8 +90,16 @@ def report():
     lng = request.args.get('lng')
     
     report_content = generate_report(lat, lng)
-    
-    return render_template('report.html', report=report_content, lat=lat, lng=lng)
+    report_sentences = report_content.split('. ')  # Splitting by sentence
+    print(report_sentences)
+     # Get weather data
+
+    weather_data = get_weather_data(lat, lng)
+
+    # Generate climate summary
+    prediction = generate_climate_summary(weather_data)
+    print(prediction)
+    return render_template('report.html', report=report_sentences, prediction=prediction, lat=lat, lng=lng)
 
 if __name__ == "__main__":
     app.run(debug=True)
