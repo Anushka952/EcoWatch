@@ -6,6 +6,29 @@ import requests
 
 app = Flask(__name__)
 
+def get_species_info(lat, lng):
+    # lat = 43.6532
+    # lng = -79.3832
+    species_api_url = f"https://api.gbif.org/v1/occurrence/search?decimalLatitude={lat}&decimalLongitude={lng}"
+    response = requests.get(species_api_url)
+
+    response.raise_for_status()
+    species_data = response.json()
+    species_names = [result['species'] for result in species_data['results']]  # Adjust based on actual structure
+    if len(species_names) == 0:
+        species_names = [
+    "Dodo (Raphus cucullatus)",
+    "Passenger Pigeon (Ectopistes migratorius)",
+    "Great Auk (Pinguinus impennis)",
+    "Heath Hen (Tympanuchus cupido cupido)",
+    "Javan Tiger (Panthera tigris sondaica)",
+    "Golden Toad (Incilius periglenes)",
+    "Quagga (Equus quagga quagga)"
+                ]
+        
+    print(species_names)
+    return species_names
+
 # Open-Meteo API endpoint for weather and climate data
 OPEN_METEO_URL = 'https://api.open-meteo.com/v1/forecast'
 
@@ -93,13 +116,15 @@ def report():
     report_sentences = report_content.split('. ')  # Splitting by sentence
     print(report_sentences)
      # Get weather data
-
     weather_data = get_weather_data(lat, lng)
-
+    # Get Species
+    species = get_species_info(lat,lng)
+    species = list(set(species))
+    print(species)
     # Generate climate summary
     prediction = generate_climate_summary(weather_data)
     print(prediction)
-    return render_template('report.html', report=report_sentences, prediction=prediction, lat=lat, lng=lng)
+    return render_template('report.html', report=report_sentences, prediction=prediction, lat=lat, lng=lng, species = species)
 
 if __name__ == "__main__":
     app.run(debug=True)
