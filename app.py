@@ -65,7 +65,23 @@ def generate_climate_summary(weather_data):
         f"and total precipitation is {precipitation} mm for the selected location."
     )
 
-    return summary
+
+    # Use a smaller model if needed
+    model_name = "EleutherAI/gpt-neo-125M"
+
+    # Load the model and tokenizer
+    model = AutoModelForCausalLM.from_pretrained(model_name)
+    tokenizer = AutoTokenizer.from_pretrained(model_name)
+
+    # Example usage
+    input_text = summary + " The expected overall climate change is,"
+    input_ids = tokenizer.encode(input_text, return_tensors="pt")
+
+    # Generate text
+    output = model.generate(input_ids, max_length=75)
+    generated_text = tokenizer.decode(output[0], skip_special_tokens=True)
+    
+    return generated_text
 
 
 @app.route('/set-location', methods=['POST'])
