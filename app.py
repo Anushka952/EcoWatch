@@ -118,10 +118,9 @@ def generate_report(lat, lng):
 def index():
     return render_template('index.html')
 
-@app.route('/about')
-def about():
-    return render_template('about.html') 
-
+@app.route('/detail')
+def detail():
+    return render_template('detail.html') 
 
 @app.route('/report')
 def report():

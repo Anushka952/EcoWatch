@@ -9,7 +9,7 @@
     <meta content="Free HTML Templates" name="description">
 
     <!-- Favicon -->
-    <link href="img/favicon.ico" rel="icon">
+    <link href="static/img/favicon.ico" rel="icon">
 
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -20,13 +20,13 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
 
     <!-- Libraries Stylesheet -->
-    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="static/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
 
     <!-- Customized Bootstrap Stylesheet -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="static/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Template Stylesheet -->
-    <link href="css/style.css" rel="stylesheet">
+    <link href="static/css/style.css" rel="stylesheet">
 </head>
 
 <body>
@@ -41,8 +41,8 @@
             </div>
             <div class="col-lg-6">
                 <div class="d-flex align-items-center justify-content-center">
-                    <a href="index.html" class="navbar-brand ms-lg-5">
-                        <h1 class="m-0 display-4 text-primary"><span class="text-secondary">Farm</span>Fresh</h1>
+                    <a href="{{ url_for('index') }}" class="navbar-brand ms-lg-5">
+                        <h1 class="m-0 display-4 text-primary"><span class="text-secondary">Eco</span>Watch</h1>
                     </a>
                 </div>
             </div>
@@ -61,7 +61,7 @@
 
     <!-- Navbar Start -->
     <nav class="navbar navbar-expand-lg bg-primary navbar-dark shadow-sm py-3 py-lg-0 px-3 px-lg-5">
-        <a href="index.html" class="navbar-brand d-flex d-lg-none">
+        <a href="{{ url_for('index') }}" class="navbar-brand d-flex d-lg-none">
             <h1 class="m-0 display-4 text-secondary"><span class="text-white">Farm</span>Fresh</h1>
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
@@ -69,21 +69,10 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <div class="navbar-nav mx-auto py-0">
-                <a href="index.html" class="nav-item nav-link">Home</a>
-                <a href="about.html" class="nav-item nav-link">About</a>
-                <a href="service.html" class="nav-item nav-link">Service</a>
-                <a href="product.html" class="nav-item nav-link">Product</a>
-                <div class="nav-item dropdown">
-                    <a href="#" class="nav-link dropdown-toggle active" data-bs-toggle="dropdown">Pages</a>
-                    <div class="dropdown-menu m-0">
-                        <a href="blog.html" class="dropdown-item">Blog Grid</a>
-                        <a href="detail.html" class="dropdown-item active">Blog Detail</a>
-                        <a href="feature.html" class="dropdown-item">Features</a>
-                        <a href="team.html" class="dropdown-item">The Team</a>
-                     
-                    </div>
+                <a href="{{ url_for('index') }}" class="nav-item nav-link">Home</a>
+                <a href="{{ url_for('detail') }}" class="nav-item nav-link">Blogs</a>
+
                 </div>
-                <a href="contact.html" class="nav-item nav-link">Contact</a>
             </div>
         </div>
     </nav>
@@ -95,9 +84,9 @@
         <div class="container py-5">
             <div class="row justify-content-start">
                 <div class="col-lg-8 text-center text-lg-start">
-                    <h1 class="display-1 text-white mb-md-4">Blog Detail</h1>
+                    <h1 class="display-1 text-white mb-md-4">Blogs</h1>
                     <a href="" class="btn btn-primary py-md-3 px-md-5 me-3">Home</a>
-                    <a href="" class="btn btn-secondary py-md-3 px-md-5">Blog Detail</a>
+                    <a href="" class="btn btn-secondary py-md-3 px-md-5">Blogs</a>
                 </div>
             </div>
         </div>
@@ -113,68 +102,81 @@
                 <div class="mb-5">
                     <div class="row g-5 mb-5">
                         <div class="col-md-6">
-                            <img class="img-fluid w-100" src="img/blog-1.jpg" alt="">
-                        </div>
-                        <div class="col-md-6">
-                            <img class="img-fluid w-100" src="img/blog-2.jpg" alt="">
+                            <img class="img-fluid w-100" src="static/img/blog-1.jpg" alt="">
                         </div>
                     </div>
-                    <h1 class="mb-4">Diam dolor est labore duo ipsum clita sed et lorem tempor duo</h1>
-                    <p>Sadipscing labore amet rebum est et justo gubergren. Et eirmod ipsum sit diam ut
-                        magna lorem. Nonumy vero labore lorem sanctus rebum et lorem magna kasd, stet
-                        amet magna accusam consetetur eirmod. Kasd accusam sit ipsum sadipscing et at at
-                        sanctus et. Ipsum sit gubergren dolores et, consetetur justo invidunt at et
-                        aliquyam ut et vero clita. Diam sea sea no sed dolores diam nonumy, gubergren
-                        sit stet no diam kasd vero.</p>
-                    <p>Voluptua est takimata stet invidunt sed rebum nonumy stet, clita aliquyam dolores
-                        vero stet consetetur elitr takimata rebum sanctus. Sit sed accusam stet sit
-                        nonumy kasd diam dolores, sanctus lorem kasd duo dolor dolor vero sit et. Labore
-                        ipsum duo sanctus amet eos et. Consetetur no sed et aliquyam ipsum justo et,
-                        clita lorem sit vero amet amet est dolor elitr, stet et no diam sit. Dolor erat
-                        justo dolore sit invidunt.</p>
-                    <p>Diam dolor est labore duo invidunt ipsum clita et, sed et lorem voluptua tempor
-                        invidunt at est sanctus sanctus. Clita dolores sit kasd diam takimata justo diam
-                        lorem sed. Magna amet sed rebum eos. Clita no magna no dolor erat diam tempor
-                        rebum consetetur, sanctus labore sed nonumy diam lorem amet eirmod. No at tempor
-                        sea diam kasd, takimata ea nonumy elitr sadipscing gubergren erat. Gubergren at
-                        lorem invidunt sadipscing rebum sit amet ut ut, voluptua diam dolores at
-                        sadipscing stet. Clita dolor amet dolor ipsum vero ea ea eos.</p>
+                    <h1 class="mb-4">Title: The Majestic Amur Leopard: Fighting for Survival</h1>
+                    <p>Introduction:
+                        The Amur Leopard, one of the most endangered big cats, is native to the temperate forests of the Russian Far East and parts of China. With fewer than 100 individuals left in the wild, this species faces numerous challenges, from habitat loss to poaching. In this post, we'll explore the unique characteristics of the Amur Leopard, the threats it faces, and the ongoing conservation efforts aimed at saving it from extinction.
+                        </p>
+                    <p>Habitat:
+                        The Amur Leopard lives in mountainous forests that experience harsh, snowy winters and warm summers. Its thick, beautiful coat helps it survive in these extreme conditions, but it also makes the leopard a target for poachers.
+                        </p>
+                    <p>Physical Characteristics:
+                        The Amur Leopard is known for its thick fur, which is pale cream-colored in winter and more golden in summer. Its rosettes (spots) are widely spaced and can have unique shapes, setting it apart from other leopards.</p>
+                        <p>Fun Facts:
+                            Amur Leopards are solitary animals and have large territories.
+                            They can run up to 37 miles per hour, making them swift predators.
+                            Conclusion:
+                            Although the Amur Leopard is critically endangered, the dedicated efforts of conservationists offer hope. With continued support and awareness, we can help preserve this magnificent species for future generations.</p>  
+                        
+                    </div>
+
+                <div class="mb-5">
+                    <div class="row g-5 mb-5">
+                        <div class="col-md-6">
+                            <img class="img-fluid w-100" src="static/img/blog-2.jpg" alt="">
+                        </div>
+                    </div>
+                    <h1 class="mb-4">Title: The Climate Crisis: Our Planet’s Call for Action</h1>
+                    <p>Introduction:
+                        Imagine a world where summers are endless heatwaves, oceans swallow entire coastlines, and forests that once thrived are no more than dry, barren land. This isn’t a far-off science fiction story—it’s the stark reality we’re facing due to climate change. As our planet’s climate shifts faster than we could have ever anticipated, we’re left with one pressing question: will we act in time?
+                        In this post, we’ll dive deep into the climate crisis—its origins, the devastating impacts we’re already seeing, and how each of us can become part of the solution. Let’s join forces to rewrite the future of our planet.</p>
+                    <p>Understanding the Climate Crisis
+                        Climate change is more than a change in temperature—it’s a complex web of shifting weather patterns, rising seas, and ecological collapse. Scientists tell us the Earth’s climate has always evolved, but human actions have accelerated this process beyond anything we’ve seen before. In just over a century, our activities have raised global temperatures and put countless ecosystems on the brink of collapse.</p>
+                    <p>What’s Fueling Climate Change?
+                        Carbon Emissions: The engines of our world—cars, planes, power plants—burn fossil fuels that emit carbon dioxide (CO₂), trapping heat in our atmosphere like a blanket we can’t shake off.
+                        
+                        Deforestation: Forests are the lungs of our planet, absorbing CO₂. Yet, every year, we lose billions of trees to deforestation, whether for farmland, timber, or urban expansion, releasing stored carbon and reducing our planet's natural defense.
+                        
+                        Industrial Agriculture: The foods we consume, particularly meat and dairy, come with a cost. Livestock release methane, a potent greenhouse gas, while synthetic fertilizers contribute nitrous oxide—both amplifying the greenhouse effect.<p>Fun Facts:
+                        Amur Leopards are solitary animals and have large territories.
+                        They can run up to 37 miles per hour, making them swift predators.
+                        Conclusion:
+                        Although the Amur Leopard is critically endangered, the dedicated efforts of conservationists offer hope. With continued support and awareness, we can help preserve this magnificent species for future generations.</p>  
+                    <p>Conclusion:
+                        The climate crisis is real, but so is our power to create change. Every small action counts, and together, we can reverse the damage, protect our ecosystems, and pave the way for a sustainable future. The clock is ticking—let’s act, before it’s too late.</p>
+                    </div>
+
+                <div class="mb-5">
+                    <div class="row g-5 mb-5">
+                        <div class="col-md-6">
+                            <img class="img-fluid w-100" src="static/img/blog-3.jpg" alt="">
+                        </div>
+                    </div>
+                    <h1 class="mb-4">Title: Deforestation: A Call to Save Our Forests</h1>
+                    <p>Introduction
+                        Our forests are vanishing. Each year, vast stretches of lush greenery disappear, transforming into barren landscapes. Deforestation is one of the greatest threats facing our planet—impacting climate, biodiversity, and even the air we breathe. But why is this happening, and what can we do about it?</p>
+                    <p>Why Are We Losing Forests?
+                        Agriculture: To meet the demand for palm oil, soy, and livestock grazing, forests are cleared at unprecedented rates.
+                        Logging: Our need for wood and paper fuels unsustainable logging practices, often in critical ecosystems.
+                        Urban Expansion: As cities grow, forests shrink, making way for roads, buildings, and infrastructure.
+                        The Consequences of Deforestation
+                        Climate Change: Trees absorb CO₂, a greenhouse gas. When we cut them down, stored carbon is released, warming our planet.
+                        Biodiversity Loss: Forests are home to 80% of terrestrial species. As they vanish, countless plants and animals face extinction.
+                        Water and Soil Degradation: Forests regulate water cycles and prevent soil erosion. Without them, lands dry up, leading to desertification and more extreme weather.
+                        Our Path Forward
+                        While the issue is urgent, there’s hope if we act now. Here’s how:</p>
+                    <p>Support Sustainable Choices: Choose products labeled as “sustainable” or “FSC-certified” to reduce the demand for deforestation-linked goods.
+                        Reforestation Efforts: Support tree-planting initiatives or even start one in your community. Trees bring life back to depleted land and capture carbon.
+                        Protect Indigenous Lands: Indigenous communities have preserved forests for generations. Supporting their rights helps conserve these ecosystems.
+                        Educate and Advocate: Share the story of deforestation. Every conversation and shared post spreads awareness and builds a movement for change.
+                        Conclusion
+                        Forests are not a resource to consume—they are vital ecosystems that sustain life. Our actions today will decide the fate of these irreplaceable landscapes. Let’s choose to protect them, not just for ourselves, but for every life that depends on them. Together, we can save our forests and create a greener, healthier future.</p>
                 </div>
                 <!-- Blog Detail End -->
 
-                <!-- Comment List Start -->
-                <div class="mb-5">
-                    <h2 class="mb-4">3 Comments</h2>
-                    <div class="d-flex mb-4">
-                        <img src="img/user.jpg" class="img-fluid" style="width: 45px; height: 45px;">
-                        <div class="ps-3">
-                            <h6><a href="">John Doe</a> <small><i>01 Jan 2045</i></small></h6>
-                            <p>Diam amet duo labore stet elitr invidunt ea clita ipsum voluptua, tempor labore
-                                accusam ipsum et no at. Kasd diam tempor rebum magna dolores sed eirmod</p>
-                            <button class="btn btn-sm btn-primary">Reply</button>
-                        </div>
-                    </div>
-                    <div class="d-flex mb-4">
-                        <img src="img/user.jpg" class="img-fluid" style="width: 45px; height: 45px;">
-                        <div class="ps-3">
-                            <h6><a href="">John Doe</a> <small><i>01 Jan 2045</i></small></h6>
-                            <p>Diam amet duo labore stet elitr invidunt ea clita ipsum voluptua, tempor labore
-                                accusam ipsum et no at. Kasd diam tempor rebum magna dolores sed eirmod</p>
-                            <button class="btn btn-sm btn-primary">Reply</button>
-                        </div>
-                    </div>
-                    <div class="d-flex ms-5 mb-4">
-                        <img src="img/user.jpg" class="img-fluid" style="width: 45px; height: 45px;">
-                        <div class="ps-3">
-                            <h6><a href="">John Doe</a> <small><i>01 Jan 2045</i></small></h6>
-                            <p>Diam amet duo labore stet elitr invidunt ea clita ipsum voluptua, tempor labore
-                                accusam ipsum et no at. Kasd diam tempor rebum magna dolores sed eirmod</p>
-                            <button class="btn btn-sm btn-primary">Reply</button>
-                        </div>
-                    </div>
-                </div>
-                <!-- Comment List End -->
-
+               
                 <!-- Comment Form Start -->
                 <div class="bg-primary p-5">
                     <h2 class="text-white mb-4">Leave a comment</h2>
@@ -201,194 +203,98 @@
                 <!-- Comment Form End -->
             </div>
 
-            <!-- Sidebar Start -->
-            <div class="col-lg-4">
-                <!-- Search Form Start -->
-                <div class="mb-5">
-                    <div class="input-group">
-                        <input type="text" class="form-control p-3" placeholder="Keyword">
-                        <button class="btn btn-primary px-4"><i class="bi bi-search"></i></button>
-                    </div>
-                </div>
-                <!-- Search Form End -->
-
-                <!-- Category Start -->
-                <div class="mb-5">
-                    <h2 class="mb-4">Categories</h2>
-                    <div class="d-flex flex-column justify-content-start bg-primary p-4">
-                        <a class="fs-5 fw-bold text-white mb-2" href="#"><i class="bi bi-arrow-right me-2"></i>Web Design</a>
-                        <a class="fs-5 fw-bold text-white mb-2" href="#"><i class="bi bi-arrow-right me-2"></i>Web Development</a>
-                        <a class="fs-5 fw-bold text-white mb-2" href="#"><i class="bi bi-arrow-right me-2"></i>Web Development</a>
-                        <a class="fs-5 fw-bold text-white mb-2" href="#"><i class="bi bi-arrow-right me-2"></i>Keyword Research</a>
-                        <a class="fs-5 fw-bold text-white" href="#"><i class="bi bi-arrow-right me-2"></i>Email Marketing</a>
-                    </div>
-                </div>
-                <!-- Category End -->
-
-                <!-- Recent Post Start -->
-                <div class="mb-5">
-                    <h2 class="mb-4">Recent Post</h2>
-                    <div class="bg-primary p-4">
-                        <div class="d-flex overflow-hidden mb-3">
-                            <img class="img-fluid flex-shrink-0" src="img/blog-1.jpg" style="width: 75px;" alt="">
-                            <a href="" class="d-flex align-items-center bg-white text-dark fs-5 fw-bold px-3 mb-0">Lorem ipsum dolor sit amet elit
-                            </a>
-                        </div>
-                        <div class="d-flex overflow-hidden mb-3">
-                            <img class="img-fluid flex-shrink-0" src="img/blog-2.jpg" style="width: 75px;" alt="">
-                            <a href="" class="d-flex align-items-center bg-white text-dark fs-5 fw-bold px-3 mb-0">Lorem ipsum dolor sit amet elit
-                            </a>
-                        </div>
-                        <div class="d-flex overflow-hidden mb-3">
-                            <img class="img-fluid flex-shrink-0" src="img/blog-3.jpg" style="width: 75px;" alt="">
-                            <a href="" class="d-flex align-items-center bg-white text-dark fs-5 fw-bold px-3 mb-0">Lorem ipsum dolor sit amet elit
-                            </a>
-                        </div>
-                        <div class="d-flex overflow-hidden mb-3">
-                            <img class="img-fluid flex-shrink-0" src="img/blog-1.jpg" style="width: 75px;" alt="">
-                            <a href="" class="d-flex align-items-center bg-white text-dark fs-5 fw-bold px-3 mb-0">Lorem ipsum dolor sit amet elit
-                            </a>
-                        </div>
-                        <div class="d-flex overflow-hidden">
-                            <img class="img-fluid flex-shrink-0" src="img/blog-2.jpg" style="width: 75px;" alt="">
-                            <a href="" class="d-flex align-items-center bg-white text-dark fs-5 fw-bold px-3 mb-0">Lorem ipsum dolor sit amet elit
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <!-- Recent Post End -->
-
-                <!-- Image Start -->
-                <div class="mb-5">
-                    <img src="img/blog-1.jpg" alt="" class="img-fluid rounded">
-                </div>
-                <!-- Image End -->
-
-                <!-- Tags Start -->
-                <div class="mb-5">
-                    <h2 class="mb-4">Tag Cloud</h2>
-                    <div class="d-flex flex-wrap m-n1">
-                        <a href="" class="btn btn-primary m-1">Design</a>
-                        <a href="" class="btn btn-primary m-1">Development</a>
-                        <a href="" class="btn btn-primary m-1">Marketing</a>
-                        <a href="" class="btn btn-primary m-1">SEO</a>
-                        <a href="" class="btn btn-primary m-1">Writing</a>
-                        <a href="" class="btn btn-primary m-1">Consulting</a>
-                        <a href="" class="btn btn-primary m-1">Design</a>
-                        <a href="" class="btn btn-primary m-1">Development</a>
-                        <a href="" class="btn btn-primary m-1">Marketing</a>
-                        <a href="" class="btn btn-primary m-1">SEO</a>
-                        <a href="" class="btn btn-primary m-1">Writing</a>
-                        <a href="" class="btn btn-primary m-1">Consulting</a>
-                    </div>
-                </div>
-                <!-- Tags End -->
-
-                <!-- Plain Text Start -->
-                <div>
-                    <h2 class="mb-4">Plain Text</h2>
-                    <div class="bg-primary text-center text-white" style="padding: 30px;">
-                        <p>Vero sea et accusam justo dolor accusam lorem consetetur, dolores sit amet sit dolor clita kasd justo, diam accusam no sea ut tempor magna takimata, amet sit et diam dolor ipsum amet diam</p>
-                        <a href="" class="btn btn-secondary py-2 px-4">Read More</a>
-                    </div>
-                </div>
-                <!-- Plain Text End -->
-            </div>
-            <!-- Sidebar End -->
         </div>
     </div>
     <!-- Blog End -->
 
-
-    <!-- Footer Start -->
-    <div class="container-fluid bg-footer bg-primary text-white mt-5">
-        <div class="container">
-            <div class="row gx-5">
-                <div class="col-lg-8 col-md-6">
-                    <div class="row gx-5">
-                        <div class="col-lg-4 col-md-12 pt-5 mb-5">
-                            <h4 class="text-white mb-4">Get In Touch</h4>
-                            <div class="d-flex mb-2">
-                                <i class="bi bi-geo-alt text-white me-2"></i>
-                                <p class="text-white mb-0">123 Street, New York, USA</p>
-                            </div>
-                            <div class="d-flex mb-2">
-                                <i class="bi bi-envelope-open text-white me-2"></i>
-                                <p class="text-white mb-0">info@example.com</p>
-                            </div>
-                            <div class="d-flex mb-2">
-                                <i class="bi bi-telephone text-white me-2"></i>
-                                <p class="text-white mb-0">+012 345 67890</p>
-                            </div>
-                            <div class="d-flex mt-4">
-                                <a class="btn btn-secondary btn-square rounded-circle me-2" href="#"><i class="fab fa-twitter"></i></a>
-                                <a class="btn btn-secondary btn-square rounded-circle me-2" href="#"><i class="fab fa-facebook-f"></i></a>
-                                <a class="btn btn-secondary btn-square rounded-circle me-2" href="#"><i class="fab fa-linkedin-in"></i></a>
-                                <a class="btn btn-secondary btn-square rounded-circle" href="#"><i class="fab fa-instagram"></i></a>
-                            </div>
+ <!-- Footer Start -->
+ <div class="container-fluid bg-footer bg-primary text-white mt-5">
+    <div class="container">
+        <div class="row gx-5">
+            <div class="col-lg-8 col-md-6">
+                <div class="row gx-5">
+                    <div class="col-lg-4 col-md-12 pt-5 mb-5">
+                        <h4 class="text-white mb-4">Get In Touch</h4>
+                        
+                        <div class="d-flex mb-2">
+                            <i class="bi bi-envelope-open text-white me-2"></i>
+                            <p class="text-white mb-0">karunakadam2003@gmail.com</p>
                         </div>
-                        <div class="col-lg-4 col-md-12 pt-0 pt-lg-5 mb-5">
-                            <h4 class="text-white mb-4">Quick Links</h4>
-                            <div class="d-flex flex-column justify-content-start">
-                                <a class="text-white mb-2" href="#"><i class="bi bi-arrow-right text-white me-2"></i>Home</a>
-                                <a class="text-white mb-2" href="#"><i class="bi bi-arrow-right text-white me-2"></i>About Us</a>
-                                <a class="text-white mb-2" href="#"><i class="bi bi-arrow-right text-white me-2"></i>Our Services</a>
-                                <a class="text-white mb-2" href="#"><i class="bi bi-arrow-right text-white me-2"></i>Meet The Team</a>
-                                <a class="text-white mb-2" href="#"><i class="bi bi-arrow-right text-white me-2"></i>Latest Blog</a>
-                                <a class="text-white" href="#"><i class="bi bi-arrow-right text-white me-2"></i>Contact Us</a>
-                            </div>
+                        <div class="d-flex mb-2">
+                            <i class="bi bi-envelope-open text-white me-2"></i>
+                            <p class="text-white mb-0"> kanushkar952@gmail.com </p>
                         </div>
-                        <div class="col-lg-4 col-md-12 pt-0 pt-lg-5 mb-5">
-                            <h4 class="text-white mb-4">Popular Links</h4>
-                            <div class="d-flex flex-column justify-content-start">
-                                <a class="text-white mb-2" href="#"><i class="bi bi-arrow-right text-white me-2"></i>Home</a>
-                                <a class="text-white mb-2" href="#"><i class="bi bi-arrow-right text-white me-2"></i>About Us</a>
-                                <a class="text-white mb-2" href="#"><i class="bi bi-arrow-right text-white me-2"></i>Our Services</a>
-                                <a class="text-white mb-2" href="#"><i class="bi bi-arrow-right text-white me-2"></i>Meet The Team</a>
-                                <a class="text-white mb-2" href="#"><i class="bi bi-arrow-right text-white me-2"></i>Latest Blog</a>
-                                <a class="text-white" href="#"><i class="bi bi-arrow-right text-white me-2"></i>Contact Us</a>
-                            </div>
+                        <div class="d-flex mb-2">
+                            <i class="bi bi-envelope-open text-white me-2"></i>
+                            <p class="text-white mb-0"> pritalgpatil@gmail.com </p>
+                        </div>
+                        <div class="d-flex mt-4">
+                            <a class="btn btn-secondary btn-square rounded-circle me-2" href="#"><i
+                                    class="fab fa-twitter"></i></a>
+                            <a class="btn btn-secondary btn-square rounded-circle me-2" href="#"><i
+                                    class="fab fa-facebook-f"></i></a>
+                            <a class="btn btn-secondary btn-square rounded-circle me-2" href="#"><i
+                                    class="fab fa-linkedin-in"></i></a>
+                            <a class="btn btn-secondary btn-square rounded-circle" href="#"><i
+                                    class="fab fa-instagram"></i></a>
                         </div>
                     </div>
-                </div>
-                <div class="col-lg-4 col-md-6 mt-lg-n5">
-                    <div class="d-flex flex-column align-items-center justify-content-center text-center h-100 bg-secondary p-5">
-                        <h4 class="text-white">Newsletter</h4>
-                        <h6 class="text-white">Subscribe Our Newsletter</h6>
-                        <p>Amet justo diam dolor rebum lorem sit stet sea justo kasd</p>
-                        <form action="">
-                            <div class="input-group">
-                                <input type="text" class="form-control border-white p-3" placeholder="Your Email">
-                                <button class="btn btn-primary">Sign Up</button>
-                            </div>
-                        </form>
+                    <div class="col-lg-4 col-md-12 pt-0 pt-lg-5 mb-5">
+                        <h4 class="text-white mb-4">Quick Links</h4>
+                        <div class="d-flex flex-column justify-content-start">
+                            <a class="text-white mb-2" href="#"><i
+                                    class="bi bi-arrow-right text-white me-2"></i>Home</a>
+                            <a class="text-white mb-2" href="#"><i
+                                    class="bi bi-arrow-right text-white me-2"></i>About Us</a>
+                            <a class="text-white mb-2" href="#"><i class="bi bi-arrow-right text-white me-2"></i>Our
+                                Services</a>
+                            <a class="text-white mb-2" href="#"><i
+                                    class="bi bi-arrow-right text-white me-2"></i>Latest Blogs</a>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-12 pt-0 pt-lg-5 mb-5">
+                        <h4 class="text-white mb-4">Popular Links</h4>
+                        <div class="d-flex flex-column justify-content-start">
+                            <a class="text-white mb-2" href="#"><i
+                                    class="bi bi-arrow-right text-white me-2"></i>Home</a>
+                            <a class="text-white mb-2" href="#"><i
+                                    class="bi bi-arrow-right text-white me-2"></i>About Us</a>
+                            <a class="text-white mb-2" href="#"><i class="bi bi-arrow-right text-white me-2"></i>Our
+                                Services</a>
+                            <a class="text-white mb-2" href="#"><i
+                                    class="bi bi-arrow-right text-white me-2"></i>Latest Blogs</a>
+                        </div>
                     </div>
                 </div>
             </div>
+            <div class="col-lg-4 col-md-6 mt-lg-n5">
+            </div>
         </div>
     </div>
-    <div class="container-fluid bg-dark text-white py-4">
-        <div class="container text-center">
-            <p class="mb-0">&copy; <a class="text-secondary fw-bold" href="#">Your Site Name</a>. All Rights Reserved. Designed by <a class="text-secondary fw-bold" href="https://htmlcodex.com">HTML Codex</a></p>
-        </div>
+</div>
+<div class="container-fluid bg-dark text-white py-4">
+    <div class="container text-center">
+        <p class="mb-0">&copy; <a class="text-secondary fw-bold" href="#">EcoWatch</a>. All Rights Reserved.
+            Designed by <a class="text-secondary fw-bold" href="https://htmlcodex.com">Stellar Queens</a></p>
     </div>
-    <!-- Footer End -->
+</div>
+<!-- Footer End -->
 
 
-    <!-- Back to Top -->
-    <a href="#" class="btn btn-secondary py-3 fs-4 back-to-top"><i class="bi bi-arrow-up"></i></a>
+<!-- Back to Top -->
+<a href="#" class="btn btn-secondary py-3 fs-4 back-to-top"><i class="bi bi-arrow-up"></i></a>
 
 
-    <!-- JavaScript Libraries -->
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="lib/easing/easing.min.js"></script>
-    <script src="lib/waypoints/waypoints.min.js"></script>
-    <script src="lib/counterup/counterup.min.js"></script>
-    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+<!-- JavaScript static/libraries -->
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="static/lib/easing/easing.min.js"></script>
+<script src="static/lib/waypoints/waypoints.min.js"></script>
+<script src="static/lib/counterup/counterup.min.js"></script>
+<script src="static/lib/owlcarousel/owl.carousel.min.js"></script>
 
-    <!-- Template Javascript -->
-    <script src="js/main.js"></script>
+<!-- Template Javascript -->
+<script src="static/js/main.js"></script>
 </body>
 
 </html>
