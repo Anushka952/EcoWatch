@@ -9,30 +9,29 @@ from diffusers import StableDiffusionPipeline
 from geopy.geocoders import Nominatim
 
 
+
 model_id = "CompVis/stable-diffusion-v1-4" 
 pipe = StableDiffusionPipeline.from_pretrained(model_id)
-
-
 device = "cuda" if torch.cuda.is_available() else "cpu"
 pipe.to(device)
 
 app = Flask(__name__)
 
+
+# Image generation using diffusion model
 def generate_image_for_species(species_name):
     """Generate an image for a specific species using Stable Diffusion."""
     prompt = f"A highly detailed and realistic depiction of an endangered species, {species_name}, in its natural habitat."
     
     with torch.no_grad():
-        # Generate the image
         image = pipe(prompt, num_inference_steps=15).images[0]
         filename = f"static/img/{species_name.replace(' ', '_')}.png" 
         image.save(filename)
-  
-    
     return filename 
 
+
+# get endangered species name for selected location
 def get_species_info(lat, lng):
- 
     species_api_url = f"https://api.gbif.org/v1/occurrence/search?decimalLatitude={lat}&decimalLongitude={lng}"
     response = requests.get(species_api_url)
 
@@ -45,16 +44,15 @@ def get_species_info(lat, lng):
     "Dodo (Raphus cucullatus)",
     "Passenger Pigeon (Ectopistes migratorius)",
     "Great Auk (Pinguinus impennis)",
-    # "Heath Hen (Tympanuchus cupido cupido)",
+    "Heath Hen (Tympanuchus cupido cupido)",
     "Javan Tiger (Panthera tigris sondaica)",
     "Golden Toad (Incilius periglenes)",
     "Quagga (Equus quagga quagga)"
                 ]
-        
-    print(species_names)
     return species_names
 
-# Open-Meteo API endpoint for weather and climate data
+
+# Open-Meteo API endpoint for weather data
 OPEN_METEO_URL = 'https://api.open-meteo.com/v1/forecast'
 
 def get_weather_data(lat, lon):
@@ -88,9 +86,8 @@ def generate_climate_summary(weather_data):
         f"and total precipitation is {precipitation} mm for the selected location."
     )
 
-
+    # climate summary generation
     model_name = "EleutherAI/gpt-neo-125M"
-
     model = AutoModelForCausalLM.from_pretrained(model_name)
     tokenizer = AutoTokenizer.from_pretrained(model_name)
 
@@ -103,11 +100,10 @@ def generate_climate_summary(weather_data):
     return generated_text
 
 
-
+# get location name of selected coordinates
 def fetch_location(lat, lng):
-    geolocator = Nominatim(user_agent="myapp/1.0")  # Unique user agent
+    geolocator = Nominatim(user_agent="myapp/1.0")
     location_name = ""
-
     try:
         # Rate limiting
         time.sleep(1)  
@@ -121,11 +117,9 @@ def fetch_location(lat, lng):
                             location.raw.get('address', {}).get('state') or \
                             location.raw.get('address', {}).get('country')
 
-
             # Translate the location name to English
             if location_name:
                 translated_location = GoogleTranslator(source='auto', target='en').translate(location_name)
-                print(f"Location in English: {translated_location}")
                 return translated_location
         else:
             print("Location not found")
@@ -136,6 +130,7 @@ def fetch_location(lat, lng):
     return location_name
 
 
+# get the coordinates from frontend
 @app.route('/set-location', methods=['POST'])
 def set_location():
     data = request.get_json()
@@ -145,6 +140,7 @@ def set_location():
     return jsonify({"status": "success", "latitude": lat, "longitude": lng})
 
 
+# Action plan generation
 model = AutoModelForCausalLM.from_pretrained("gpt2")
 tokenizer = AutoTokenizer.from_pretrained("gpt2")
 
@@ -164,13 +160,18 @@ def generate_report(lat, lng):
 
     return clean_text
 
+
+
 @app.route('/')
 def index():
     return render_template('index.html')
 
+
 @app.route('/detail')
 def detail():
     return render_template('detail.html') 
+
+
 
 @app.route('/report')
 def report():
