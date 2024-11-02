@@ -166,7 +166,24 @@ def report():
     print(prediction)
     
     # List to hold generated image filenames
-    image_filenames = []
+    image_filenames = [
+    "static/img/Dodo_(Raphus_cucullatus).png",
+    "static/img/Golden_Toad_(Incilius_periglenes).png",
+    "static/img/Heath_Hen_(Tympanuchus_cupido_cupido).png",
+    "static/img/Javan_Tiger_(Panthera_tigris_sondaica).png",
+    "static/img/Passenger_Pigeon_(Ectopistes_migratorius).png",
+    "static/img/Quagga_(Equus_quagga_quagga).png"
+    ]
+
+    species = [
+         "Raphus_cucullatus",
+    "Incilius_periglenes",
+    "Tympanuchus_cupido_cupido",
+    "Panthera_tigris_sondaica",
+    "Ectopistes_migratorius",
+    "Equus_quagga"
+    ]
+    
     # Fetch endangered species data
     # species_list = fetch_species_data(latitude, longitude)
     
@@ -183,7 +200,17 @@ def report():
         print("Image generation for all species completed.")
     else:
         print("No endangered species found for the given location.")
-    return render_template('report.html', report=report_sentences, prediction=prediction, lat=lat, lng=lng, species = species,image_filenames=image_filenames)
+        
+    species_images = [{'filename': img, 'name': name} for img, name in zip(image_filenames, species)]
+    return render_template(
+        'report.html',
+        report=report_sentences,
+        prediction=prediction,
+        lat=lat,
+        lng=lng,
+        species_images=species_images
+    )
+    # return render_template('report.html', report=report_sentences, prediction=prediction, lat=lat, lng=lng, species = species,image_filenames=image_filenames)
 
 if __name__ == "__main__":
     app.run(debug=True)
