@@ -1,23 +1,18 @@
 import time
 from deep_translator import GoogleTranslator
 from flask import Flask, render_template, request, jsonify
-import json
 from transformers import AutoModelForCausalLM, AutoTokenizer 
 import re 
 import requests
 import torch
 from diffusers import StableDiffusionPipeline
 from geopy.geocoders import Nominatim
-from geopy.exc import GeocoderTimedOut, GeocoderServiceError
-from googletrans import Translator
 
 
-
-# Load the pre-trained model directly from Hugging Face or a local path
-model_id = "CompVis/stable-diffusion-v1-4"  # You can replace this with your model path
+model_id = "CompVis/stable-diffusion-v1-4" 
 pipe = StableDiffusionPipeline.from_pretrained(model_id)
 
-# Check if GPU is available and set to FP16 if possible
+
 device = "cuda" if torch.cuda.is_available() else "cpu"
 pipe.to(device)
 
@@ -30,30 +25,30 @@ def generate_image_for_species(species_name):
     with torch.no_grad():
         # Generate the image
         image = pipe(prompt, num_inference_steps=15).images[0]
-        filename = f"static/img/{species_name.replace(' ', '_')}.png"  # Save to static directory
+        filename = f"static/img/{species_name.replace(' ', '_')}.png" 
         image.save(filename)
-        print(f"Saved image for {species_name} as {filename}")
+  
     
     return filename 
 
 def get_species_info(lat, lng):
-    # lat = 43.6532
-    # lng = -79.3832
+ 
     species_api_url = f"https://api.gbif.org/v1/occurrence/search?decimalLatitude={lat}&decimalLongitude={lng}"
     response = requests.get(species_api_url)
 
     response.raise_for_status()
     species_data = response.json()
-    species_names = [result['species'] for result in species_data['results']]  # Adjust based on actual structure
+    species_names = [result['species'] for result in species_data['results']]  
+
     if len(species_names) == 0:
         species_names = [
-    # "Dodo (Raphus cucullatus)",
-    # "Passenger Pigeon (Ectopistes migratorius)",
+    "Dodo (Raphus cucullatus)",
+    "Passenger Pigeon (Ectopistes migratorius)",
     "Great Auk (Pinguinus impennis)",
     # "Heath Hen (Tympanuchus cupido cupido)",
     "Javan Tiger (Panthera tigris sondaica)",
-    # "Golden Toad (Incilius periglenes)",
-    # "Quagga (Equus quagga quagga)"
+    "Golden Toad (Incilius periglenes)",
+    "Quagga (Equus quagga quagga)"
                 ]
         
     print(species_names)
@@ -82,13 +77,11 @@ def generate_climate_summary(weather_data):
     if not weather_data:
         return "Weather data is unavailable. Please try again later."
 
-    # Extract relevant data for summary
     daily_data = weather_data.get('daily', {})
     temperature_max = daily_data.get('temperature_2m_max', [])[0] if daily_data.get('temperature_2m_max') else None
     temperature_min = daily_data.get('temperature_2m_min', [])[0] if daily_data.get('temperature_2m_min') else None
     precipitation = daily_data.get('precipitation_sum', [0])[0] if daily_data.get('precipitation_sum') else 0
 
-    # Create a summary
     summary = (
         f"The maximum temperature is expected to be {temperature_max}°C, "
         f"the minimum temperature is {temperature_min}°C, "
@@ -96,18 +89,14 @@ def generate_climate_summary(weather_data):
     )
 
 
-    # Use a smaller model if needed
     model_name = "EleutherAI/gpt-neo-125M"
 
-    # Load the model and tokenizer
     model = AutoModelForCausalLM.from_pretrained(model_name)
     tokenizer = AutoTokenizer.from_pretrained(model_name)
 
-    # Example usage
     input_text = summary + " The expected overall climate change is,"
     input_ids = tokenizer.encode(input_text, return_tensors="pt")
 
-    # Generate text
     output = model.generate(input_ids, max_length=75)
     generated_text = tokenizer.decode(output[0], skip_special_tokens=True)
     
@@ -121,7 +110,7 @@ def fetch_location(lat, lng):
 
     try:
         # Rate limiting
-        time.sleep(1)  # Sleep for 1 second between requests
+        time.sleep(1)  
         location = geolocator.reverse((lat, lng), exactly_one=True, timeout=10)
 
         if location:
@@ -192,11 +181,11 @@ def report():
     loc= fetch_location(lat,lng)
 
     report_content = generate_report(lat, lng)
-    report_sentences = report_content.split('. ')  # Splitting by sentence
+    report_sentences = report_content.split('. ')
     print(report_sentences)
      # Get weather data
     weather_data = get_weather_data(lat, lng)
-    # Get Species
+    # Get Species data
     species = get_species_info(lat,lng)
     species = list(set(species))
     print(species)
@@ -204,7 +193,6 @@ def report():
     prediction = generate_climate_summary(weather_data)
     print(prediction)
     
-    # List to hold generated image filenames
     image_filenames = [
     "static/img/Dodo_(Raphus_cucullatus).png",
     "static/img/Golden_Toad_(Incilius_periglenes).png",
@@ -230,7 +218,7 @@ def report():
         print(f"Generating images for {len(species)} endangered species.")
         count = 0
         for species_name in species:
-            if count == 0:  # Limit to 3 species for this example
+            if count == 0:  
                 break
             image_filename = generate_image_for_species(species_name)
             image_filenames.append(image_filename)  # Append the filename to the list
