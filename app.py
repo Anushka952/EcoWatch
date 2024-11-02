@@ -1,3 +1,5 @@
+import time
+from deep_translator import GoogleTranslator
 from flask import Flask, render_template, request, jsonify
 import json
 from transformers import AutoModelForCausalLM, AutoTokenizer 
@@ -114,40 +116,33 @@ def generate_climate_summary(weather_data):
 
 
 def fetch_location(lat, lng):
-    # Initialize Nominatim API with a user-agent
-    geolocator = Nominatim(user_agent="geoapiExercises")
+    geolocator = Nominatim(user_agent="myapp/1.0")  # Unique user agent
     location_name = ""
-    translator = Translator()
+
     try:
-        # Get location
+        # Rate limiting
+        time.sleep(1)  # Sleep for 1 second between requests
         location = geolocator.reverse((lat, lng), exactly_one=True, timeout=10)
-        
-        # Extract the location name
+
         if location:
-            # The location can contain multiple components. 
-            location_name = (
-                location.raw.get('address', {}).get('suburb') or 
-                location.raw.get('address', {}).get('neighborhood') or 
-                location.raw.get('address', {}).get('city') or 
-                location.raw.get('address', {}).get('county') or 
-                location.raw.get('address', {}).get('state') or 
-                location.raw.get('address', {}).get('country')
-            )
-            print(location_name)  # Logging the location name
+            location_name = location.raw.get('address', {}).get('suburb') or \
+                            location.raw.get('address', {}).get('neighborhood') or \
+                            location.raw.get('address', {}).get('city') or \
+                            location.raw.get('address', {}).get('county') or \
+                            location.raw.get('address', {}).get('state') or \
+                            location.raw.get('address', {}).get('country')
+
+
+            # Translate the location name to English
             if location_name:
-                location_name = translator.translate(location_name, dest='en')
-                print(f"Location in English: {location_name.text}")
-                location_name = location_name.text
+                translated_location = GoogleTranslator(source='auto', target='en').translate(location_name)
+                print(f"Location in English: {translated_location}")
+                return translated_location
         else:
             print("Location not found")
     
-    except GeocoderTimedOut:
-        print("Geocoding service timed out. Please try again.")
-        # You might want to retry the request here
-    except GeocoderServiceError as e:
-        print(f"Geocoding service error: {e}")
     except Exception as e:
-        print(f"An error occurred: {e}")
+        print(f"Error occurred: {e}")
     
     return location_name
 
@@ -192,6 +187,8 @@ def detail():
 def report():
     lat = request.args.get('lat')
     lng = request.args.get('lng')
+    print(lat)
+    print(lng)
     loc= fetch_location(lat,lng)
 
     report_content = generate_report(lat, lng)
