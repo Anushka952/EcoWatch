@@ -118,11 +118,17 @@ Open http//:127.0.0.1:5000 to view the web app
 
 ## Screenshots
 
+#### Home Page
 ![home page](Screenshot_3-11-2024_01915_127.0.0.1.jpeg)
 
+#### Reports Page
 ![Report page](Screenshot_3-11-2024_02415_127.0.0.1.jpeg)
 
+
+#### Blogs page
 ![Blog page](Screenshot_3-11-2024_01449_127.0.0.1.jpeg)
+
+
 
 ## Demo
 
