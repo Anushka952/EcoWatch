@@ -32,8 +32,10 @@ request: Handles and processes incoming data from client-side requests.
 
 jsonify: Converts data to JSON format for API responses, ensuring structured and easy data transfer.
 
-#### 2. JSON Handling
-json: A built-in Python library to parse, read, and write JSON data, ensuring smooth communication and data handling within the application.
+#### 2. Library for Location
+Geopy: Specifically, the Nominatim geocoder from the geopy.geocoders module is used for converting addresses into geographic coordinates (latitude and longitude) and vice versa. It allows easy access to geographic data for various applications, such as mapping and location-based services.
+
+Deep Translator: The GoogleTranslator class from the deep_translator library is employed to facilitate translation services within the application. It uses Google Translate's API to provide reliable translations between multiple languages, enhancing accessibility and user experience.
 
 #### 3. Transformers Library
 transformers: A state-of-the-art library for natural language processing (NLP) tasks, which powers text generation and understanding.
@@ -111,15 +113,26 @@ Run the app
   python app.py
 ```
 
+Open http//:127.0.0.1:5000 to view the web app
+
 
 ## Screenshots
 
+#### Home Page
+![home page](Screenshot_3-11-2024_01915_127.0.0.1.jpeg)
+
+#### Reports Page
+![Report page](Screenshot_3-11-2024_02415_127.0.0.1.jpeg)
+
+
+#### Blogs page
+![Blog page](Screenshot_3-11-2024_01449_127.0.0.1.jpeg)
 
 
 
 ## Demo
 
-Insert gif or link to demo
+
 
 
 ## Authors
