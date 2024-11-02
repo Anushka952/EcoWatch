@@ -9,7 +9,7 @@ from diffusers import StableDiffusionPipeline
 from geopy.geocoders import Nominatim
 
 
-
+# Model for generating images
 model_id = "CompVis/stable-diffusion-v1-4" 
 pipe = StableDiffusionPipeline.from_pretrained(model_id)
 device = "cuda" if torch.cuda.is_available() else "cpu"
@@ -194,36 +194,14 @@ def report():
     prediction = generate_climate_summary(weather_data)
     print(prediction)
     
-    image_filenames = [
-    "static/img/Dodo_(Raphus_cucullatus).png",
-    "static/img/Golden_Toad_(Incilius_periglenes).png",
-    "static/img/Heath_Hen_(Tympanuchus_cupido_cupido).png",
-    "static/img/Javan_Tiger_(Panthera_tigris_sondaica).png",
-    "static/img/Passenger_Pigeon_(Ectopistes_migratorius).png",
-    "static/img/Quagga_(Equus_quagga_quagga).png"
-    ]
-
-    species = [
-         "Raphus_cucullatus",
-    "Incilius_periglenes",
-    "Tympanuchus_cupido_cupido",
-    "Panthera_tigris_sondaica",
-    "Ectopistes_migratorius",
-    "Equus_quagga"
-    ]
-    
-    # Fetch endangered species data
-    # species_list = fetch_species_data(latitude, longitude)
+    image_filenames = []
     
     if species:
         print(f"Generating images for {len(species)} endangered species.")
-        count = 0
+
         for species_name in species:
-            if count == 0:  
-                break
             image_filename = generate_image_for_species(species_name)
             image_filenames.append(image_filename)  # Append the filename to the list
-            count += 1
             
         print("Image generation for all species completed.")
     else:
@@ -239,7 +217,6 @@ def report():
         loc=loc,
         species_images=species_images
     )
-    # return render_template('report.html', report=report_sentences, prediction=prediction, lat=lat, lng=lng, species = species,image_filenames=image_filenames)
 
 if __name__ == "__main__":
     app.run(debug=True)
