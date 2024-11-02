@@ -398,14 +398,22 @@
                             #seeReportButton:hover {
                                 background-color: #174356;
                             }
-
-                            
                         </style>
                         <div id="globeViz"></div>
                         <button id="setButton">Set Location</button>
-                        <button id="seeReportButton" style="display: none;" onclick="redirectToReport()" class="btn btn-primary">See Report</button>
+                        <button id="seeReportButton" style="display: none;" onclick="redirectToReport()"
+                            class="btn btn-primary">See Report</button>
                         <div id="messageBox"
                             style="display: none; margin-top: 10px; padding: 10px; background-color: #e0ffe0; color: #1e3a5f; border: 1px solid #1e3a5f; border-radius: 5px;">
+                        </div>
+
+                        <div id="messageBox2"
+                        style="display: none; margin-top: 10px; padding: 10px; background-color: #e0ffe0; color: #1e3a5f; border: 1px solid #1e3a5f; border-radius: 5px;">
+                        <h3> Generating Report</h3>
+                    </div>
+                        <!-- Progress bar container -->
+                        <div id="progressContainer" style="display: none; margin-top: 10px;">
+                            <div id="progressBar" style="width: 0%; height: 20px; background-color: #4caf50;"></div>
                         </div>
 
                         <script>const world = Globe()
@@ -434,8 +442,8 @@
                                 marker.lng = lng;
                                 world.pointsData([marker]);
                                 console.log(`Marker set to Latitude: ${lat}, Longitude: ${lng}`);
-                                latitude=lat
-                                longitude=lng
+                                latitude = lat
+                                longitude = lng
                             });
 
                             // "Set" button click event to send coordinates to the backend
@@ -469,12 +477,32 @@
                                     .catch(error => console.error("Error:", error));
                             });
 
-                         // "See Report" button click event
-                        function redirectToReport() {
-                            // Redirect to the report route with parameters
-                            window.location.href = `/report?lat=${latitude}&lng=${longitude}`;
-                        }
-                </script>
+                            // "See Report" button click event
+                            function redirectToReport() {
+                                // Redirect to the report route with parameters
+                                window.location.href = `/report?lat=${latitude}&lng=${longitude}`;
+                            }
+
+                            function redirectToReport() {
+                                // Show the progress bar
+                                const progressContainer = document.getElementById("progressContainer");
+                                const progressBar = document.getElementById("progressBar");
+                                progressContainer.style.display = 'block';
+
+                                // Simulate progress bar loading
+                                let progress = 0;
+                                const interval = setInterval(() => {
+                                    if (progress < 100) {
+                                        progress += 5; // Increase progress (adjust speed as needed)
+                                        progressBar.style.width = progress + '%';
+                                    } else {
+                                        clearInterval(interval);
+                                        // Redirect to the report route
+                                        window.location.href = `/report?lat=${latitude}&lng=${longitude}`;
+                                    }
+                                }, 300); // Update every 300ms (adjust for desired duration)
+                            }
+                        </script>
                     </div>
 
 
@@ -574,7 +602,7 @@
         </div>
     </div>
     <!-- Products End -->
-    
+
 
     <!-- Blog Start -->
     <div class="container-fluid py-5">
