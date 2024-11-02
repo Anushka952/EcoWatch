@@ -220,7 +220,14 @@
                 <p class="card-text">{{ species }}</p>
             </div>
         </div>
-    
+        <h3>Generated Images:</h3>
+        <div>
+            <p> </p>
+            {% for image_filename in image_filenames %}
+
+                <img src="{{ url_for('static', filename=image_filename.split('/')[-1]) }}" alt="Image of {{ species_name }}" style="width:200px; height:auto;">
+            {% endfor %}
+        </div>
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>

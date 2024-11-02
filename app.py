@@ -3,8 +3,32 @@ import json
 from transformers import AutoModelForCausalLM, AutoTokenizer 
 import re 
 import requests
+import torch
+from diffusers import StableDiffusionPipeline
+
+
+# Load the pre-trained model directly from Hugging Face or a local path
+model_id = "CompVis/stable-diffusion-v1-4"  # You can replace this with your model path
+pipe = StableDiffusionPipeline.from_pretrained(model_id)
+
+# Check if GPU is available and set to FP16 if possible
+device = "cuda" if torch.cuda.is_available() else "cpu"
+pipe.to(device)
 
 app = Flask(__name__)
+
+def generate_image_for_species(species_name):
+    """Generate an image for a specific species using Stable Diffusion."""
+    prompt = f"A highly detailed and realistic depiction of an endangered species, {species_name}, in its natural habitat."
+    
+    with torch.no_grad():
+        # Generate the image
+        image = pipe(prompt, num_inference_steps=15).images[0]
+        filename = f"static/img/{species_name.replace(' ', '_')}.png"  # Save to static directory
+        image.save(filename)
+        print(f"Saved image for {species_name} as {filename}")
+    
+    return filename 
 
 def get_species_info(lat, lng):
     # lat = 43.6532
@@ -17,13 +41,13 @@ def get_species_info(lat, lng):
     species_names = [result['species'] for result in species_data['results']]  # Adjust based on actual structure
     if len(species_names) == 0:
         species_names = [
-    "Dodo (Raphus cucullatus)",
-    "Passenger Pigeon (Ectopistes migratorius)",
+    # "Dodo (Raphus cucullatus)",
+    # "Passenger Pigeon (Ectopistes migratorius)",
     "Great Auk (Pinguinus impennis)",
-    "Heath Hen (Tympanuchus cupido cupido)",
+    # "Heath Hen (Tympanuchus cupido cupido)",
     "Javan Tiger (Panthera tigris sondaica)",
-    "Golden Toad (Incilius periglenes)",
-    "Quagga (Equus quagga quagga)"
+    # "Golden Toad (Incilius periglenes)",
+    # "Quagga (Equus quagga quagga)"
                 ]
         
     print(species_names)
@@ -140,7 +164,26 @@ def report():
     # Generate climate summary
     prediction = generate_climate_summary(weather_data)
     print(prediction)
-    return render_template('report.html', report=report_sentences, prediction=prediction, lat=lat, lng=lng, species = species)
+    
+    # List to hold generated image filenames
+    image_filenames = []
+    # Fetch endangered species data
+    # species_list = fetch_species_data(latitude, longitude)
+    
+    if species:
+        print(f"Generating images for {len(species)} endangered species.")
+        count = 0
+        for species_name in species:
+            if count == 0:  # Limit to 3 species for this example
+                break
+            image_filename = generate_image_for_species(species_name)
+            image_filenames.append(image_filename)  # Append the filename to the list
+            count += 1
+            
+        print("Image generation for all species completed.")
+    else:
+        print("No endangered species found for the given location.")
+    return render_template('report.html', report=report_sentences, prediction=prediction, lat=lat, lng=lng, species = species,image_filenames=image_filenames)
 
 if __name__ == "__main__":
     app.run(debug=True)
