@@ -5,6 +5,10 @@ import re
 import requests
 import torch
 from diffusers import StableDiffusionPipeline
+from geopy.geocoders import Nominatim
+from geopy.exc import GeocoderTimedOut, GeocoderServiceError
+from googletrans import Translator
+
 
 
 # Load the pre-trained model directly from Hugging Face or a local path
@@ -108,13 +112,51 @@ def generate_climate_summary(weather_data):
     return generated_text
 
 
+
+def fetch_location(lat, lng):
+    # Initialize Nominatim API with a user-agent
+    geolocator = Nominatim(user_agent="geoapiExercises")
+    location_name = ""
+    translator = Translator()
+    try:
+        # Get location
+        location = geolocator.reverse((lat, lng), exactly_one=True, timeout=10)
+        
+        # Extract the location name
+        if location:
+            # The location can contain multiple components. 
+            location_name = (
+                location.raw.get('address', {}).get('suburb') or 
+                location.raw.get('address', {}).get('neighborhood') or 
+                location.raw.get('address', {}).get('city') or 
+                location.raw.get('address', {}).get('county') or 
+                location.raw.get('address', {}).get('state') or 
+                location.raw.get('address', {}).get('country')
+            )
+            print(location_name)  # Logging the location name
+            if location_name:
+                location_name = translator.translate(location_name, dest='en')
+                print(f"Location in English: {location_name.text}")
+                location_name = location_name.text
+        else:
+            print("Location not found")
+    
+    except GeocoderTimedOut:
+        print("Geocoding service timed out. Please try again.")
+        # You might want to retry the request here
+    except GeocoderServiceError as e:
+        print(f"Geocoding service error: {e}")
+    except Exception as e:
+        print(f"An error occurred: {e}")
+    
+    return location_name
+
+
 @app.route('/set-location', methods=['POST'])
 def set_location():
     data = request.get_json()
     lat = data.get('lat')
     lng = data.get('lng')
-    
-    print(f"Received coordinates: Latitude={lat}, Longitude={lng}")  # Check if these are not null
     
     return jsonify({"status": "success", "latitude": lat, "longitude": lng})
 
@@ -150,7 +192,8 @@ def detail():
 def report():
     lat = request.args.get('lat')
     lng = request.args.get('lng')
-    
+    loc= fetch_location(lat,lng)
+
     report_content = generate_report(lat, lng)
     report_sentences = report_content.split('. ')  # Splitting by sentence
     print(report_sentences)
@@ -207,6 +250,7 @@ def report():
         prediction=prediction,
         lat=lat,
         lng=lng,
+        loc=loc,
         species_images=species_images
     )
     # return render_template('report.html', report=report_sentences, prediction=prediction, lat=lat, lng=lng, species = species,image_filenames=image_filenames)
